@@ -1,0 +1,9 @@
+version: 0.1
+
+endpoints:
+  - name: support service
+    port: 8080
+    type: REST
+    networkVisibility: Project
+    context: /
+    schemaFilePath: docs/api_spec.yaml

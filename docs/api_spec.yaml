@@ -1,0 +1,56 @@
+---
+swagger: '2.0'
+info:
+  description: ''
+  version: 1.0.0
+  title: Api Documentation
+host: localhost
+basePath: "/"
+tags:
+  - name: ReportController
+schemes:
+  - http
+  - https
+paths:
+  "/api/reports":
+    get:
+      tags:
+        - ReportController
+      operationId: getSalesReport
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            "$ref": "#/definitions/SalesReport"
+      security:
+        - api_key: []
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: Authorization
+    in: header
+definitions:
+  SalesReport:
+    properties:
+      productSalesList:
+        type: array
+        items:
+          "$ref": "#/definitions/ProductSales"
+  ProductSales:
+    properties:
+      productSku:
+        type: string
+      productName:
+        type: string
+      unitPrice:
+        type: number
+        format: double
+      unitsSold:
+        type: integer
+        format: int32
+      total:
+        type: number
+        format: double
